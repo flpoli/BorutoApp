@@ -36,9 +36,11 @@ fun SetupNavGraph(navController: NavHostController){
             })){
 
         }
-
         composable(route = Screen.Search.route) {
+        }
+        composable(route = Screen.Home.route) {
             HomeScreen(navController = navController)
+
         }
     }
 }
