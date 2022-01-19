@@ -1,16 +1,19 @@
 package com.example.borutoapp.navigation
 
+import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
+import com.example.borutoapp.presentation.screens.home.HomeScreen
 import com.example.borutoapp.presentation.screens.splash.SplashScreen
 import com.example.borutoapp.presentation.screens.welcome.WelcomeScreen
 import com.example.borutoapp.util.Constants.DETAILS_ARGUMENT_KEY
 import com.google.accompanist.pager.ExperimentalPagerApi
 
+@ExperimentalAnimationApi
 @Composable
 @ExperimentalPagerApi
 
@@ -34,10 +37,8 @@ fun SetupNavGraph(navController: NavHostController){
 
         }
 
-
-
         composable(route = Screen.Search.route) {
-
+            HomeScreen(navController = navController)
         }
     }
 }
