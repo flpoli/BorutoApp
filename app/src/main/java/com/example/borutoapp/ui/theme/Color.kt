@@ -11,6 +11,8 @@ val Teal200 = Color(0xFF03DAC5)
 val LightGrey = Color(0xFFD8D8D8)
 val DarkGrey = Color(0xFF2A2A2A)
 
+val StarColor = Color(0xFFFFC94D)
+
 val Colors.welcomeScreenBackgroundColor
     @Composable
     get() = if(isLight) Color.White else Color.Black
