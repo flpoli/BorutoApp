@@ -7,6 +7,7 @@ import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.paging.compose.collectAsLazyPagingItems
+import com.example.borutoapp.presentation.common.ListContent
 import com.example.borutoapp.presentation.components.RatingWidget
 import com.example.borutoapp.ui.LARGE_PADDING
 
@@ -21,8 +22,12 @@ fun HomeScreen(
     Scaffold(
         topBar = {
             HomeTopBar(onSearchClicked = {})
+        },
+        content = {
+            ListContent(
+                heroes = allHeroes,
+                navController = navController
+            )
         }
-    ){
-        RatingWidget(modifier = Modifier.padding(LARGE_PADDING), rating = 0.6)
-    }
+    )
 }
