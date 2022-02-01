@@ -9,11 +9,11 @@ import com.example.borutoapp.data.local.BorutoDataBase
 import com.example.borutoapp.data.remote.BorutoApi
 import com.example.borutoapp.domain.model.Hero
 import com.example.borutoapp.domain.model.HeroRemoteKeys
+import com.example.borutoapp.ui.theme.Purple500
 import javax.inject.Inject
 
 @ExperimentalPagingApi
-class HeroRemoteMediator
-@Inject constructor(
+class HeroRemoteMediator @Inject constructor(
     private val borutoApi: BorutoApi,
     private val borutoDatabase: BorutoDataBase
 ) : RemoteMediator<Int, Hero>() {
@@ -23,7 +23,17 @@ class HeroRemoteMediator
 
 
     override suspend fun initialize(): InitializeAction {
-        return super.initialize()
+
+        val currentTime = System.currentTimeMillis()
+        val lastUpdated = heroRemoteKeysDao.getRemoteKeys(heroId = 1)?.lastUpdated ?: 0L
+        val cacheTimeout = 1440
+        val diffInMinutes = (currentTime - lastUpdated) / 1000 / 60
+
+        return if(diffInMinutes.toInt() <= cacheTimeout) {
+            InitializeAction.SKIP_INITIAL_REFRESH
+        } else{
+            InitializeAction.LAUNCH_INITIAL_REFRESH
+        }
     }
 
 
@@ -79,7 +89,8 @@ class HeroRemoteMediator
                         HeroRemoteKeys(
                             id = hero.id,
                             prevPage = prevPage,
-                            nextPage = nextPage
+                            nextPage = nextPage,
+                            lastUpdated = response.lastUpdated
                         )
                     }
                     heroRemoteKeysDao.addAllRemoteKeys(keys)
