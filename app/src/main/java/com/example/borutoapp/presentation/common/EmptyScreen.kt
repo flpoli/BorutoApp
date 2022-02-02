@@ -81,12 +81,11 @@ fun EmptyScreen(error: LoadState.Error) {
 
 fun parseErrorMessage(error: LoadState.Error): String {
 
-    return when {
-
-        error.error is SocketTimeoutException -> {
+    return when (error.error) {
+        is SocketTimeoutException -> {
             "Server Unavailable"
         }
-        error.error is ConnectException -> {
+        is ConnectException -> {
             "Internet Unavailable"
         }
         else -> "Unknown Error"
