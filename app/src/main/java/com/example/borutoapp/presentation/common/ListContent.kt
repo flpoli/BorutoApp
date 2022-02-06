@@ -90,6 +90,10 @@ fun handlePagingResult(heroes: LazyPagingItems<Hero>): Boolean {
                 EmptyScreen(error = error)
                 false
             }
+            heroes.itemCount < 1 -> {
+                EmptyScreen()
+                return false
+            }
             else -> true
         }
     }
