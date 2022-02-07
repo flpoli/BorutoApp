@@ -27,8 +27,6 @@ import com.example.borutoapp.ui.theme.*
 import com.example.borutoapp.util.Constants.LAST_ON_BOARDING_PAGE
 import com.example.borutoapp.util.Constants.ON_BOARDING_PAGE_COUNT
 import com.google.accompanist.pager.*
-import dagger.hilt.android.lifecycle.HiltViewModel
-import java.nio.file.WatchEvent
 
 @ExperimentalAnimationApi
 @ExperimentalPagerApi
@@ -100,7 +98,7 @@ fun PagerScreen(onBoardingPage: OnBoardingPage){
             modifier = Modifier
                 .fillMaxWidth(),
             text = onBoardingPage.title,
-            color = MaterialTheme.colors.title,
+            color = MaterialTheme.colors.titleColor,
             fontSize = MaterialTheme.typography.h4.fontSize,
             fontWeight = FontWeight.Bold,
             textAlign = TextAlign.Center

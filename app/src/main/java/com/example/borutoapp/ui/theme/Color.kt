@@ -22,7 +22,7 @@ val Colors.welcomeScreenBackgroundColor
     @Composable
     get() = if(isLight) Color.White else Color.Black
 
-val Colors.title
+val Colors.titleColor
     @Composable
     get() = if(isLight) DarkGrey else LightGrey
 val Colors.descriptionColor

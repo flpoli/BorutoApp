@@ -1,4 +1,4 @@
-package com.example.borutoapp.domain.repository
+package com.example.borutoapp.data.repository
 
 import androidx.paging.ExperimentalPagingApi
 import androidx.paging.Pager
@@ -9,6 +9,7 @@ import com.example.borutoapp.data.paging_source.HeroRemoteMediator
 import com.example.borutoapp.data.paging_source.SearchHeroesSource
 import com.example.borutoapp.data.remote.BorutoApi
 import com.example.borutoapp.domain.model.Hero
+import com.example.borutoapp.domain.repository.RemoteDataSource
 import com.example.borutoapp.util.Constants.ITEMS_PER_PAGE
 import kotlinx.coroutines.flow.Flow
 
