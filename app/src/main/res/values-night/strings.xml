@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="network_error_icon">network error icon</string>
+    <string name="preview_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla finibus fringilla porttitor. Pellentesque quis lorem sit amet turpis ullamcorper cursus nec quis massa. Fusce pellentesque auctor elit, ac tristique nulla varius nec. Vestibulum et accumsan tellus. Praesent vitae pulvinar tortor, eu malesuada risus. Integer semper ipsum ipsum, sed commodo augue consectetur et. Nam vehicula neque lectus, sed dictum lacus porta sit amet. Donec rutrum molestie tellus sit amet rutrum. Mauris fermentum luctus mauris at mattis. Nunc eget nulla mattis, luctus nisi sed, ultrices felis. Suspendisse iaculis tellus ac urna dictum vulputate. Nulla eu eleifend tortor. Duis nec aliquet nisi, vel efficitur risus. Etiam ornare tortor ipsum, hendrerit molestie neque ullamcorper sit amet. Quisque at urna sollicitudin, elementum nunc ac, dapibus nisl</string>
 </resources>
