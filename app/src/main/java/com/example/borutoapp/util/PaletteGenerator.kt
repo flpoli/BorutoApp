@@ -41,15 +41,13 @@ object PaletteGenerator {
             ),
             "onDarkVibrant" to parseBodyColor(
                 color = Palette.from(bitmap).generate().darkVibrantSwatch?.bodyTextColor
-            ),
+            )
         )
-
     }
     private fun parseColorSwatch(color: Palette.Swatch?): String {
-
         return if( color != null ){
             val parsedColor = Integer.toHexString(color.rgb)
-            "#$parsedColor"
+           return "#$parsedColor"
         } else {
             "#000000"
         }

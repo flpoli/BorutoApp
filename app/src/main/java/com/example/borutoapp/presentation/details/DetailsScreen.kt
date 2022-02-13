@@ -26,7 +26,7 @@ fun DetailsScreen(
     val selectedHero by detailsViewModel.selectedHero.collectAsState()
     val colorPalette by detailsViewModel.colorPalette
 
-    if(colorPalette.isEmpty()) {
+    if(colorPalette.isNotEmpty()) {
         DetailsContent(
             navController = navController,
             selectedHero = selectedHero,

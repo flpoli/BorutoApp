@@ -32,6 +32,7 @@ import com.example.borutoapp.ui.*
 import com.example.borutoapp.ui.theme.titleColor
 import com.example.borutoapp.util.Constants.BASE_URL
 import com.example.borutoapp.util.Constants.MIN_BACKGROUND_IMAGE_HEIGHT
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 @ExperimentalCoilApi
 @ExperimentalMaterialApi
@@ -57,12 +58,16 @@ fun DetailsContent(
     )
 
     val currentSheetFraction = scaffoldState.currentSheetFraction
-    Log.d("Fraction New ", currentSheetFraction.toString())
-    
+
     val radiusAnim by animateDpAsState(
         targetValue = if(currentSheetFraction == 1f)  EXTRA_LARGE_PADDING else EXPANDED_RADIUS_LEVEL
     )
 
+    val systemUiController = rememberSystemUiController()
+
+    systemUiController.setStatusBarColor(
+        color = Color(parseColor(darkVibrant))
+    )
 
     BottomSheetScaffold(
         sheetShape = RoundedCornerShape(
@@ -83,8 +88,7 @@ fun DetailsContent(
         },
         content = {
 
-            selectedHero?.let{
-                hero ->
+            selectedHero?.let{ hero ->
                     BackgroundContent(
                         heroImage = hero.image,
                         imageFraction = currentSheetFraction,
@@ -133,7 +137,7 @@ fun BottomSheetContent(
                 text = selectedHero.name,
                 color = contentColor,
                 fontSize = MaterialTheme.typography.h4.fontSize,
-                fontWeight = FontWeight.Bold,
+                fontWeight = FontWeight.Bold
 
             )
         }
@@ -170,12 +174,12 @@ fun BottomSheetContent(
             text = "About",
             color = contentColor,
             fontSize = MaterialTheme.typography.subtitle1.fontSize,
-            fontWeight = FontWeight.Bold,
+            fontWeight = FontWeight.Bold
         )
         Text(
             modifier = Modifier
                 .alpha(ContentAlpha.medium)
-                .padding(MEDIUM_PADDING),
+                .padding(bottom = MEDIUM_PADDING),
             text = selectedHero.about,
             color = contentColor,
             fontSize = MaterialTheme.typography.body1.fontSize,
@@ -235,7 +239,7 @@ fun BackgroundContent(
         Row(
             modifier = Modifier
                 .fillMaxWidth(),
-            horizontalArrangement = Arrangement.End,
+            horizontalArrangement = Arrangement.End
         ){
             IconButton(
                 modifier = Modifier.padding(all = SMALL_PADDING),
@@ -258,10 +262,6 @@ val BottomSheetScaffoldState.currentSheetFraction: Float
         val fraction = bottomSheetState.progress.fraction
         val targetValue = bottomSheetState.targetValue
         val currentValue = bottomSheetState.currentValue
-
-        Log.d("Fraction ", fraction.toString())
-        Log.d("Fraction Target ", targetValue.toString())
-        Log.d("Fraction Current", currentValue.toString())
 
         return when {
 
